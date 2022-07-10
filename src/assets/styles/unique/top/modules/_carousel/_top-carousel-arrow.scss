@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-carousel-arrow {
+  $_this: &;
+
+  display: flex;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(0, -50%);
+
+  &__item {
+    width: 30px;
+  }
+}
