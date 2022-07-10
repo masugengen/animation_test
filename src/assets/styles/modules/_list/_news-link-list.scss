@@ -4,6 +4,7 @@
 @use "../../mixin/media-queries" as *;
 @use "../../mixin/space-reset" as *;
 @use "../../mixin/hover" as *;
+@use "../../mixin/js-enabled" as *;
 
 .news-link-list {
   $_this: &;
@@ -19,6 +20,17 @@
 
     &:not(:first-child) {
       border-bottom: 1px solid $color-gray;
+    }
+
+    @include js-enabled() {
+      opacity: 0;
+      transform: translate(-50px, 0);
+      transition: opacity .5s, transform .5s;
+
+      &.is-active {
+        opacity: 1;
+        transform: translate(0)
+      }
     }
 
     @include space-reset;
@@ -43,7 +55,7 @@
       position: absolute;
       width: 16px;
       height: 16px;
-      background-image: url("/assets/img/ico-arrow.svg");
+      background-image: url("/assets/image/ico-arrow.svg");
       top: .2rem;
       left: 0;
       transform: translateX(0);
